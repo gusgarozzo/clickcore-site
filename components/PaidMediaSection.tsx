@@ -151,36 +151,46 @@ export default function PaidMediaSection() {
       <div className="border-t border-[#F6F8F7] py-40 px-6 text-center bg-white">
         <div className="max-w-4xl mx-auto">
           <motion.h3
-            {...(shouldReduce ? {} : {
-              initial: { opacity: 0, y: 20 },
-              whileInView: { opacity: 1, y: 0 },
-              transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
-              viewport: { once: true },
-            })}
+            {...(shouldReduce
+              ? {}
+              : {
+                  initial: { opacity: 0, y: 20 },
+                  whileInView: { opacity: 1, y: 0 },
+                  transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+                  viewport: { once: true },
+                })}
             className="font-sans font-bold text-[#373643] m-0 text-[32px] md:text-[52px] leading-tight tracking-[-0.02em]"
           >
             ¿Listo para hacer crecer tu negocio con publicidad?
           </motion.h3>
 
           <motion.p
-            {...(shouldReduce ? {} : {
-              initial: { opacity: 0, y: 20 },
-              whileInView: { opacity: 1, y: 0 },
-              transition: { duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] },
-              viewport: { once: true },
-            })}
+            {...(shouldReduce
+              ? {}
+              : {
+                  initial: { opacity: 0, y: 20 },
+                  whileInView: { opacity: 1, y: 0 },
+                  transition: {
+                    duration: 0.6,
+                    delay: 0.1,
+                    ease: [0.25, 0.1, 0.25, 1],
+                  },
+                  viewport: { once: true },
+                })}
             className="font-sans font-normal text-[#6B7280] text-[18px] md:text-[21px] m-0 mt-6 mb-12"
           >
             Resultados medibles y optimización constante.
           </motion.p>
 
           <motion.div
-            {...(shouldReduce ? {} : {
-              initial: { opacity: 0, scale: 0.98 },
-              whileInView: { opacity: 1, scale: 1 },
-              transition: { duration: 0.4, delay: 0.2 },
-              viewport: { once: true },
-            })}
+            {...(shouldReduce
+              ? {}
+              : {
+                  initial: { opacity: 0, scale: 0.98 },
+                  whileInView: { opacity: 1, scale: 1 },
+                  transition: { duration: 0.4, delay: 0.2 },
+                  viewport: { once: true },
+                })}
           >
             <motion.a
               href={WHATSAPP_CAMPANAS}

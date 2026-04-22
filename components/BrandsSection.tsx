@@ -1,36 +1,35 @@
-'use client'
+"use client";
 
-import { useReducedMotion } from 'framer-motion'
-import Image from 'next/image'
-import { BRANDS } from '@/lib/constants'
-
+import { useReducedMotion } from "framer-motion";
+import Image from "next/image";
+import { BRANDS } from "@/lib/constants";
 
 const ALL_LOGOS = [
-  { name: 'Marca 1',   file: '/images/logos/1.webp' },
-  { name: 'Marca 2',   file: '/images/logos/2.webp' },
-  { name: 'Marca 3',   file: '/images/logos/3.webp' },
-  { name: 'Marca 4',   file: '/images/logos/4.webp' },
-  { name: 'Marca 5',   file: '/images/logos/5.webp' },
-  { name: 'Marca 7',   file: '/images/logos/7.webp' },
-  { name: 'Marca 8',   file: '/images/logos/8.webp' },
-  { name: 'Marca 9',   file: '/images/logos/9.webp' },
-  { name: 'Marca 10',  file: '/images/logos/10.webp' },
-  { name: 'Marca 11',  file: '/images/logos/11.webp' },
-  { name: 'Marca 12',  file: '/images/logos/12.webp' },
-  { name: 'Marca 13',  file: '/images/logos/13.webp' },
-  { name: 'Marca 14',  file: '/images/logos/14.webp' },
-  { name: 'Marca 18',  file: '/images/logos/18.webp' },
-  { name: 'Marca 20',  file: '/images/logos/20.webp' },
-  { name: 'Marca 22',  file: '/images/logos/22.webp' },
-  { name: 'Marca 24',  file: '/images/logos/24.webp' },
-  { name: 'Marca 25',  file: '/images/logos/25.webp' },
-]
+  { name: "Marca 1", file: "/images/logos/1.webp" },
+  { name: "Marca 2", file: "/images/logos/2.webp" },
+  { name: "Marca 3", file: "/images/logos/3.webp" },
+  { name: "Marca 4", file: "/images/logos/4.webp" },
+  { name: "Marca 5", file: "/images/logos/5.webp" },
+  { name: "Marca 7", file: "/images/logos/7.webp" },
+  { name: "Marca 8", file: "/images/logos/8.webp" },
+  { name: "Marca 9", file: "/images/logos/9.webp" },
+  { name: "Marca 10", file: "/images/logos/10.webp" },
+  { name: "Marca 11", file: "/images/logos/11.webp" },
+  { name: "Marca 12", file: "/images/logos/12.webp" },
+  { name: "Marca 13", file: "/images/logos/13.webp" },
+  { name: "Marca 14", file: "/images/logos/14.webp" },
+  { name: "Marca 18", file: "/images/logos/18.webp" },
+  { name: "Marca 20", file: "/images/logos/20.webp" },
+  { name: "Marca 22", file: "/images/logos/22.webp" },
+  { name: "Marca 24", file: "/images/logos/24.webp" },
+  { name: "Marca 25", file: "/images/logos/25.webp" },
+];
 
 // Duplicate the list to create seamless infinite loop
-const TRACK_LOGOS = [...ALL_LOGOS, ...ALL_LOGOS]
+const TRACK_LOGOS = [...ALL_LOGOS, ...ALL_LOGOS];
 
 export default function BrandsSection() {
-  const shouldReduce = useReducedMotion()
+  const shouldReduce = useReducedMotion();
 
   return (
     <section
@@ -95,7 +94,11 @@ export default function BrandsSection() {
           role="list"
         >
           <div
-            className={shouldReduce ? "flex flex-wrap justify-center gap-6 px-6" : "marquee-track gap-0"}
+            className={
+              shouldReduce
+                ? "flex flex-wrap justify-center gap-6 px-6"
+                : "marquee-track gap-0"
+            }
           >
             {TRACK_LOGOS.map((logo, i) => (
               <div
@@ -117,5 +120,5 @@ export default function BrandsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

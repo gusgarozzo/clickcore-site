@@ -271,5 +271,5 @@ export const CONTACT = {
 // ── Footer ──────────────────────────────────────────────────
 export const FOOTER = {
   tagline: 'Impulsamos negocios con estrategia digital clara.',
-  copyright: '© 2025 Clickcore · Todos los derechos reservados',
+  copyright: '© 2026 Clickcore · Todos los derechos reservados',
 } as const;
