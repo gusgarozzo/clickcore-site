@@ -48,25 +48,32 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Col 2 — Navigation */}
           <div>
-            <p className="font-sans font-semibold text-xs text-brand-green tracking-widest uppercase mb-4">
+            <p className="text-[#18CB96] text-[12px] font-semibold uppercase 
+              tracking-[0.1em] mb-4">
               Navegación
             </p>
-            <nav aria-label="Navegación del footer">
-              <ul className="list-none p-0 m-0 flex flex-col gap-2.5">
-                {NAV_LINKS.map((link) => (
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      className="font-sans font-normal text-sm text-white/65 no-underline hover:text-brand-green transition-colors duration-200"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+            <ul className="space-y-2">
+              {[
+                { label: 'Inicio', href: '#hero' },
+                { label: 'Servicios', href: '#servicios' },
+                { label: 'Resultados', href: '#resultados' },
+                { label: 'Cómo trabajamos', href: '#como-trabajamos' },
+                { label: 'Contenido', href: '#contenido' },
+                { label: 'Sobre Mí', href: '#sobre-mi' },
+                { label: 'Contacto', href: '#contacto' },
+              ].map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-[rgba(255,255,255,0.7)] text-[14px] font-normal
+                      hover:text-[#18CB96] transition-colors duration-200"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Col 3 — Contact */}
@@ -109,10 +116,8 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-white/10 pt-6">
-          <p
-            className="font-sans font-normal text-[13px] text-white/40 m-0 text-center"
-          >
+        <div className="border-t border-white/10 pt-6 text-center">
+          <p className="text-[rgba(255,255,255,0.4)] text-[13px] font-normal">
             {FOOTER.copyright}
           </p>
         </div>

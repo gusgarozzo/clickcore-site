@@ -1,6 +1,8 @@
 import Header from '@/components/Header'
 import HeroSection from '@/components/HeroSection'
 import BrandsSection from '@/components/BrandsSection'
+import ProblemSection from '@/components/ProblemSection'
+import WhatWeDoSection from '@/components/WhatWeDoSection'
 import PaidMediaSection from '@/components/PaidMediaSection'
 import ResultsSection from '@/components/ResultsSection'
 import HowWeWorkSection from '@/components/HowWeWorkSection'
@@ -18,6 +20,8 @@ export default function Home() {
       <main>
         <HeroSection />
         <BrandsSection />
+        <ProblemSection />
+        <WhatWeDoSection />
         <PaidMediaSection />
         <ResultsSection />
         <HowWeWorkSection />
