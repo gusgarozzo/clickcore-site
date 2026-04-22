@@ -1,81 +1,101 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { Layers, Heart, ShoppingBag, Zap } from 'lucide-react'
-import { COMPLEMENTARY, WHATSAPP_DEFAULT } from '@/lib/constants'
+import { motion, useReducedMotion } from 'framer-motion'
+import { Compass, Layout, Paintbrush, MessageSquare, LucideIcon, ArrowRight } from 'lucide-react'
+import { COMPLEMENTARY, WHATSAPP_CONSULTAR } from '@/lib/constants'
 
-const iconMap = { Layers, Heart, ShoppingBag, Zap } as const
-const ease = [0.25, 0.1, 0.25, 1] as const
+const ICON_MAP: Record<string, LucideIcon> = {
+  Compass,
+  Layout,
+  Paintbrush,
+  MessageSquare,
+}
 
 export default function ComplementarySection() {
+  const shouldReduce = useReducedMotion()
+
   return (
-    <section id="servicios-complementarios" className="bg-white py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section
+      id="servicios-complementarios"
+      className="bg-white py-24"
+    >
+      <div className="max-w-7xl mx-auto px-6">
         {/* Label */}
         <motion.p
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease }}
-          viewport={{ once: true, margin: '-60px' }}
-          className="uppercase font-semibold text-xs tracking-[0.1em] text-brand-green mb-4 text-center"
+          {...(shouldReduce ? {} : {
+            initial: { opacity: 0, y: 20 },
+            whileInView: { opacity: 1, y: 0 },
+            transition: { duration: 0.55, ease: [0.25, 0.1, 0.25, 1] },
+            viewport: { once: true, margin: '-60px' },
+          })}
+          className="font-sans font-semibold text-[12px] text-brand-green tracking-[0.1em] uppercase text-center mb-3"
         >
           {COMPLEMENTARY.label}
         </motion.p>
 
         {/* H2 */}
         <motion.h2
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease }}
-          viewport={{ once: true, margin: '-60px' }}
-          className="text-[30px] lg:text-[44px] font-bold text-brand-dark leading-tight text-center max-w-3xl mx-auto"
+          {...(shouldReduce ? {} : {
+            initial: { opacity: 0, y: 20 },
+            whileInView: { opacity: 1, y: 0 },
+            transition: { duration: 0.55, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] },
+            viewport: { once: true, margin: '-60px' },
+          })}
+          className="font-sans font-bold text-brand-dark text-center m-0 mb-3 text-[30px] md:text-[44px]"
         >
           {COMPLEMENTARY.h2}
         </motion.h2>
 
-        {/* Grid 2x2 */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Subtitle */}
+        <motion.p
+          {...(shouldReduce ? {} : {
+            initial: { opacity: 0, y: 20 },
+            whileInView: { opacity: 1, y: 0 },
+            transition: { duration: 0.55, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] },
+            viewport: { once: true, margin: '-60px' },
+          })}
+          className="font-sans font-normal text-[17px] text-brand-text-gray text-center mb-12"
+        >
+          {COMPLEMENTARY.subtitle}
+        </motion.p>
+
+        {/* 2x2 grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {COMPLEMENTARY.cards.map((card, i) => {
-            const Icon = iconMap[card.icon]
+            const Icon = ICON_MAP[card.icon]
             return (
               <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                transition={{ duration: 0.55, delay: i * 0.1, ease }}
-                viewport={{ once: true, margin: '-60px' }}
-                className="bg-white border border-brand-dark/[0.08] rounded-[16px] shadow-[0_2px_16px_rgba(55,54,67,0.07)] p-7 hover:shadow-[0_12px_32px_rgba(55,54,67,0.12)] transition-shadow duration-250 flex flex-col"
+                key={card.title}
+                {...(shouldReduce ? {} : {
+                  initial: { opacity: 0, y: 28 },
+                  whileInView: { opacity: 1, y: 0 },
+                  transition: { duration: 0.55, delay: i * 0.1, ease: [0.25, 0.1, 0.25, 1] },
+                  viewport: { once: true, margin: '-40px' },
+                  whileHover: { y: -6 },
+                })}
+                className="bg-white border border-brand-dark/10 rounded-2xl p-7 shadow-sm hover:shadow-md transition-shadow duration-250 ease-in-out"
               >
                 {/* Icon circle */}
-                <div className="w-12 h-12 rounded-full bg-brand-mint flex items-center justify-center mb-4">
-                  <Icon size={28} className="text-brand-green" strokeWidth={1.5} />
+                <div className="w-12 h-12 rounded-full bg-brand-mint flex items-center justify-center mb-4" aria-hidden="true">
+                  {Icon && <Icon size={24} className="text-brand-green" />}
                 </div>
 
-                <h3 className="font-bold text-lg text-brand-dark mb-2">{card.title}</h3>
-                <p className="text-brand-text-gray text-[15px] mb-4">{card.description}</p>
+                <h3 className="font-sans font-bold text-[18px] text-brand-dark m-0 mb-2">
+                  {card.title}
+                </h3>
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {card.tags.map((tag, j) => (
-                    <span
-                      key={j}
-                      className="bg-brand-bg-light text-brand-text-gray text-xs font-medium rounded-full px-3 py-1"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <p className="text-brand-dark font-semibold text-sm mt-auto mb-3">{card.price}</p>
+                <p className="font-sans font-normal text-[15px] text-brand-text-gray m-0 mb-4 leading-relaxed">
+                  {card.description}
+                </p>
 
                 <a
-                  href={WHATSAPP_DEFAULT}
+                  href={WHATSAPP_CONSULTAR}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-green font-semibold text-[15px] hover:text-brand-deep transition-colors"
+                  className="inline-flex items-center gap-1.5 font-sans font-semibold text-[14px] text-brand-green no-underline hover:text-brand-medium transition-colors duration-200"
                 >
                   {card.cta}
+                  <ArrowRight size={15} aria-hidden="true" />
                 </a>
               </motion.div>
             )

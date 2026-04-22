@@ -1,13 +1,17 @@
 // ============================================================
-// CLICKCORE — CONSTANTES GLOBALES
+// CLICKCORE — CONSTANTES GLOBALES v2
 // Todos los textos, precios y configuración en un solo lugar.
 // ============================================================
 
 // ── WhatsApp ────────────────────────────────────────────────
 export const WHATSAPP_BASE = 'https://wa.me/542494004281';
-export const WHATSAPP_DEFAULT = `${WHATSAPP_BASE}?text=${encodeURIComponent('Hola Josefina, me interesa saber más sobre los servicios de Clickcore')}`;
-export const WHATSAPP_CONSULTA = `${WHATSAPP_BASE}?text=${encodeURIComponent('Hola Josefina, quiero agendar una consulta gratis')}`;
-export const WHATSAPP_CITA = `${WHATSAPP_BASE}?text=${encodeURIComponent('Hola Josefina, quiero programar una cita')}`;
+export const WHATSAPP_DIAGNOSTICO = `${WHATSAPP_BASE}?text=${encodeURIComponent('Hola Josefina, quiero solicitar un diagnóstico gratuito')}`;
+export const WHATSAPP_REUNION = `${WHATSAPP_BASE}?text=${encodeURIComponent('Hola Josefina, quiero agendar una reunión')}`;
+export const WHATSAPP_PLAN_REDES = `${WHATSAPP_BASE}?text=${encodeURIComponent('Hola Josefina, quiero saber más sobre el Plan de Redes')}`;
+export const WHATSAPP_INTEGRAL = `${WHATSAPP_BASE}?text=${encodeURIComponent('Hola Josefina, quiero crecer con el Plan Integral')}`;
+export const WHATSAPP_CAMPANAS = `${WHATSAPP_BASE}?text=${encodeURIComponent('Hola Josefina, quiero trabajar mis campañas digitales')}`;
+export const WHATSAPP_NEGOCIO = `${WHATSAPP_BASE}?text=${encodeURIComponent('Hola Josefina, quiero hablar de mi negocio')}`;
+export const WHATSAPP_CONSULTAR = `${WHATSAPP_BASE}?text=${encodeURIComponent('Hola Josefina, quiero consultar sobre un servicio')}`;
 
 // ── Contacto ────────────────────────────────────────────────
 export const PHONE = '2494004281';
@@ -29,214 +33,216 @@ export const NAV_LINKS = [
 // ── Hero ────────────────────────────────────────────────────
 export const HERO = {
   badge: 'Más de 7 años impulsando negocios',
-  badgeIcon: 'Check',
   h1: 'Tenés algo valioso para ofrecer. Hagamos que más personas lo descubran.',
   h1Highlight: 'descubran',
-  subtitle: 'Tu negocio puede crecer cuando la comunicación correcta se encuentra con las personas correctas.',
-  description: 'En Clickcore desarrollamos estrategias digitales, campañas activas y herramientas comerciales para transformar el potencial de tu marca en mayores oportunidades.',
-  ctaPrimary: 'Agendá tu consulta gratis',
-  ctaSecondary: 'Ver servicios',
-  floatingBadge: 'Resultados medibles cada mes',
-  floatingBadgeIcon: 'TrendingUp',
+  subtitle: 'Comunicación profesional, campañas activas y optimización continua para mejorar visibilidad, generar consultas y acompañar el crecimiento de tu negocio.',
+  industries: 'Agro · Industria · Negocios · Tecnología · Servicios profesionales',
+  ctaPrimary: 'Solicitar diagnóstico',
+  ctaSecondary: 'Ver resultados',
+  floatingBadge: 'Resultados medibles',
 } as const;
 
-// ── Problema ────────────────────────────────────────────────
-export const PROBLEM = {
-  label: 'El problema que frenó tu crecimiento',
-  h2: 'Tenés el valor.\nTe falta visibilidad estratégica.',
-  h2Highlight: 'visibilidad estratégica',
-  paragraphs: [
-    'Muchos negocios tienen buenos productos, excelente atención y clientes que los recomiendan. Sin embargo, muchas personas que hoy están buscando exactamente lo que ofrecés todavía no te conocen o no llegaron a descubrir tu marca.',
-    'Y muchas veces incluso tus propios clientes no se enteran de tus novedades, nuevos productos, promociones o servicios que también podrían volver a elegir.',
-    'Necesitás una estrategia clara para ganar visibilidad, fortalecer el vínculo con tus clientes actuales y convertir oportunidades en ventas constantes.',
+// ── Marcas ──────────────────────────────────────────────────
+export const BRANDS = {
+  label: 'Confiaron en nosotros',
+  h2: 'Marcas que confiaron en nosotros',
+  subtitle: 'Empresas y negocios que trabajaron su comunicación y campañas con enfoque estratégico.',
+} as const;
+
+// ── Paid Media ──────────────────────────────────────────────
+export const PAID_MEDIA = {
+  label: 'Especialización',
+  h2: 'Publicidad digital con enfoque estratégico y optimización continua',
+  subtitle: 'Aparecé cuando te buscan, impactá cuando navegan y trabajá tus campañas con una lógica clara, medible y en mejora constante.',
+  cta: 'Quiero trabajar mis campañas',
+  ctaNote: 'Trabajo personalizado y optimización continua.',
+  blocks: [
+    {
+      id: 'search',
+      pill: 'Google Search Ads',
+      h3: 'Aparecé cuando te están buscando',
+      paragraph: 'Captás clientes con intención real en el momento exacto en que necesitan tu producto o servicio.',
+      highlight: 'Intención activa = más probabilidades de venta',
+      image: '/images/search-ads.webp',
+      imageAlt: 'Campaña de búsqueda en Google Ads - Clickcore',
+      imageWidth: 1536,
+      imageHeight: 1024,
+      imageLeft: true,
+      bg: 'white',
+    },
+    {
+      id: 'pmax',
+      pill: 'Google Performance Max',
+      h3: 'Escalá tus resultados con automatización inteligente',
+      paragraph: 'Google distribuye tus anuncios en todos sus canales para maximizar alcance, oportunidades y rendimiento.',
+      highlight: 'Una sola campaña, múltiples canales, mejores resultados',
+      image: '/images/pmax-ads.webp',
+      imageAlt: 'Campaña Performance Max Google Ads - Clickcore',
+      imageWidth: 1536,
+      imageHeight: 1024,
+      imageLeft: false,
+      bg: 'light',
+    },
+    {
+      id: 'display',
+      pill: 'Google Display',
+      h3: 'Tu marca presente en todo momento',
+      paragraph: 'Impactás a tus potenciales clientes mientras navegan en sitios, apps y plataformas digitales.',
+      highlight: 'Visibilidad constante que construye marca',
+      image: '/images/display-ads.webp',
+      imageAlt: 'Campaña Display Google Ads - Clickcore',
+      imageWidth: 1536,
+      imageHeight: 1024,
+      imageLeft: true,
+      bg: 'white',
+    },
+    {
+      id: 'meta',
+      pill: 'Meta Ads',
+      h3: 'Llegá a las personas correctas en el momento ideal',
+      paragraph: 'Segmentación avanzada y creatividad estratégica para generar interés, interacción y oportunidades reales.',
+      highlight: 'Impacto, segmentación y remarketing en un solo ecosistema',
+      image: '/images/meta-ads.webp',
+      imageAlt: 'Campaña Meta Ads Facebook Instagram - Clickcore',
+      imageWidth: 1536,
+      imageHeight: 1024,
+      imageLeft: false,
+      bg: 'light',
+    },
   ],
+} as const;
+
+// ── Resultados ──────────────────────────────────────────────
+export const RESULTS = {
+  label: 'Casos reales',
+  h2: 'Resultados reales en campañas digitales',
+  subtitle: 'Casos trabajados con enfoque en visibilidad, consultas y optimización.',
   cards: [
     {
-      icon: 'Clock' as const,
-      title: 'Falta de tiempo',
-      text: 'No alcanza el tiempo para comunicar todo lo que tu negocio hace y ofrece.',
+      image: '/images/resultado-medicina-estetica.webp',
+      imageAlt: 'Resultados campaña Meta Ads medicina estética - Clickcore',
+      title: 'Campaña | Medicina estética',
+      subtitle: 'Optimización de consultas y rendimiento',
+      pill: 'Meta Ads',
     },
     {
-      icon: 'TrendingDown' as const,
-      title: 'Campañas sin seguimiento',
-      text: 'Las campañas se lanzan pero no se miden ni se optimizan para mejorar resultados.',
-    },
-    {
-      icon: 'Palette' as const,
-      title: 'Marca desactualizada',
-      text: 'Una imagen que no refleja el valor real de tu negocio ni conecta con los clientes actuales.',
+      image: '/images/resultado-maquinas-corralon.webp',
+      imageAlt: 'Resultados campaña Meta Ads máquinas de jardín - Clickcore',
+      title: 'Campaña | Máquinas de jardín',
+      subtitle: 'Generación de consultas comerciales',
+      pill: 'Meta Ads',
     },
   ],
-  cta: 'Quiero crecer →',
 } as const;
 
-// ── Qué hacemos ─────────────────────────────────────────────
-export const WHAT_WE_DO = {
-  label: 'Nuestra propuesta',
-  h2: 'No necesitás trabajar más.\nNecesitás comunicar mejor.',
-  h2Highlight: 'comunicar mejor',
+
+// ── Cómo Trabajamos ─────────────────────────────────────────
+export const HOW_WE_WORK = {
+  label: 'El proceso',
+  h2: 'Cómo trabajamos cada proyecto',
+  subtitle: 'Cada negocio es distinto. Por eso trabajamos con un proceso claro y adaptado a cada caso.',
+  steps: [
+    {
+      number: '01',
+      icon: 'Search',
+      title: 'Análisis',
+      text: 'Entendemos el negocio, contexto y punto de partida.',
+    },
+    {
+      number: '02',
+      icon: 'Target',
+      title: 'Estrategia',
+      text: 'Definimos enfoque, campañas y objetivos.',
+    },
+    {
+      number: '03',
+      icon: 'Rocket',
+      title: 'Implementación',
+      text: 'Configuración y puesta en marcha de campañas.',
+    },
+    {
+      number: '04',
+      icon: 'BarChart2',
+      title: 'Optimización',
+      text: 'Ajustes constantes para mejorar rendimiento.',
+    },
+  ],
+} as const;
+
+// ── Contenido ───────────────────────────────────────────────
+export const CONTENT = {
+  label: 'Contenido',
+  h2: 'Contenido y comunicación para potenciar tu presencia digital',
+  subtitle: 'Tu marca activa, clara y alineada con lo que querés comunicar.',
   paragraphs: [
-    'Diseñamos sistemas simples para que tu negocio gane presencia, genere contactos y venda con más claridad.',
-    'Combinamos estrategia, creatividad y herramientas digitales en acciones concretas orientadas a resultados.',
+    'Trabajamos con una propuesta ágil y un plan mensual de contenidos, pensado para mantener tu comunicación ordenada, coherente y activa.',
+    'Sumamos reels de forma simple: con un método paso a paso para realizarlos en poco tiempo, y podamos generar contenido de interacción cada semana sin complicarte.',
+    'Nosotros definimos la estrategia y organización. Vos solo necesitás revisar y validar el contenido.',
+    'No trabajamos con gestión diaria de contenidos, sino con planificación mensual y seguimiento organizado.',
   ],
-  chips: [
-    { icon: 'Check', text: 'Redes sociales con enfoque comercial' },
-    { icon: 'Check', text: 'Publicidad en plataformas clave' },
-    { icon: 'Check', text: 'Automatización' },
-    { icon: 'Check', text: 'Branding profesional' },
-    { icon: 'Check', text: 'Soporte a ventas online y offline' },
-  ],
-} as const;
-
-// ── Servicios: Redes Sociales ───────────────────────────────
-export const SERVICE_REDES = {
-  h3: '1. Gestión de Redes Sociales',
-  h4: 'Tu marca activa, visible y conectada.',
-  paragraph: 'Construimos una presencia que genere confianza y mantenga a tu negocio presente en la mente de tus clientes.',
-  plans: {
-    standard: {
-      badge: 'Standard',
-      price: '$300.000 / mes',
-      description: 'Ideal para comenzar con una imagen profesional y presencia constante.',
-      items: [
-        '2 posteos semanales',
-        'Historias activas',
-        'Diseño de piezas',
-        'Redacción estratégica',
-        'Calendario mensual',
-        'Seguimiento general',
-      ],
-      cta: 'Quiero este plan',
-    },
-    full: {
-      badge: { icon: 'Star', text: 'Más popular' },
-      price: '$350.000 / mes',
-      description: 'Para marcas que quieren más movimiento, cercanía y contenido dinámico.',
-      items: [
-        'Todo lo del Plan Standard',
-        '3 reels mensuales',
-        'Ideas creativas continuas',
-        'Cobertura de promociones',
-        'Mayor interacción',
-        'Reporte mensual',
-      ],
-      cta: 'Quiero crecer en redes',
-    },
+  planRedes: {
+    badge: 'Recomendado',
+    name: 'Plan de Redes',
+    price: '$350.000 / mes',
+    description: 'Presencia activa, contenido dinámico y comunicación clara para que tu marca se vea profesional y en movimiento.',
+    items: [
+      '2 posteos semanales',
+      'Historias activas',
+      '3 a 4 reels mensuales',
+      'Diseño de piezas',
+      'Redacción estratégica',
+      'Calendario de contenidos',
+      'Ideas creativas',
+      'Cobertura de promociones',
+      'Seguimiento general',
+    ],
+    idealFor: 'Negocios que quieren presencia constante y contenido dinámico sin complicarse en la gestión diaria.',
+    cta: 'Quiero este plan',
   },
-} as const;
-
-// ── Servicios: Publicidad Digital ───────────────────────────
-export const SERVICE_ADS = {
-  h3: '2. Publicidad Digital',
-  h4: 'Llegá a las personas correctas en el momento indicado.',
-  paragraph: 'Campañas pensadas para generar consultas, ventas y nuevas oportunidades.',
-  plans: [
-    {
-      icon: 'Target' as const,
-      name: 'Plan Base Meta Ads',
-      price: '$200.000 / mes',
-      description: 'Ideal para empezar a vender o captar consultas con campañas activas.',
-      items: [
-        '1 campaña en Meta Ads',
-        'Hasta 2 conjuntos de anuncios',
-        'Mix de creativos',
-        'Segmentación de públicos',
-        'Optimización continua',
-        'Reporte mensual',
-      ],
-      cta: 'Quiero vender más',
-    },
-    {
-      icon: 'Search' as const,
-      name: 'Plan Premium Google Ads',
-      price: '$250.000 / mes',
-      description: 'Para aparecer cuando las personas buscan lo que ofrecés.',
-      items: [
-        'Campañas en Google Ads',
-        'Palabras clave estratégicas',
-        'Red de Display: múltiples formatos y sitios clave',
-        'Configuración técnica',
-        'Optimización continua',
-        'Seguimiento de resultados',
-        'Reporte detallado',
-      ],
-      cta: 'Quiero aparecer en Google',
-    },
-    {
-      icon: 'BarChart2' as const,
-      name: 'Plan Performance',
-      price: 'A presupuestar',
-      description: 'Para negocios con múltiples objetivos, productos o escalado continuo.',
-      items: [
-        'Combinación de varias campañas activas',
-        'Test A/B',
-        'Remarketing',
-        'Escalado y análisis avanzado',
-        'Reportes estratégicos',
-      ],
-      cta: 'Solicitar propuesta',
-    },
-  ],
-} as const;
-
-// ── Servicios: Plan Integral ────────────────────────────────
-export const SERVICE_INTEGRAL = {
-  badge: { icon: 'Star', text: 'PROMO DESTACADA' },
-  h3: '3. Plan Integral',
-  subtitle: 'Todo conectado para generar visibilidad, contactos y ventas.',
-  price: '$400.000 / mes',
-  description: 'La mejor opción para negocios que necesitan una solución clara y efectiva. Combinamos redes sociales + anuncios + estrategia integral en un solo plan.',
-  includes: [
-    'Gestión de redes sociales',
-    '1 Campaña en Meta + 1 Campaña en Google (opcional)',
-    'Diseño + estrategia + optimización',
-    'Mensaje unificado en todos los canales',
-  ],
-  idealFor: [
-    'Tener presencia digital ordenada',
-    'Generar consultas inmediatas',
-    'Crecer en redes de forma sostenida',
-    'Delegar en profesionales',
-  ],
-  cta: 'Quiero crecer con estrategia',
+  planIntegral: {
+    badge: 'Todo en uno',
+    name: 'Plan Integral',
+    price: '$400.000 / mes',
+    description: 'La mejor opción para negocios que necesitan una solución clara y efectiva. Combinamos redes sociales + campañas + estrategia integral en un solo plan.',
+    items: [
+      'Plan de Redes completo',
+      '1 Campaña en Meta Ads',
+      'Diseño + estrategia + optimización',
+      'Mensaje unificado en todos los canales',
+    ],
+    cta: 'Quiero crecer con estrategia',
+  },
 } as const;
 
 // ── Servicios Complementarios ───────────────────────────────
 export const COMPLEMENTARY = {
   label: 'También hacemos',
-  h2: 'Soluciones que potencian tu crecimiento según la etapa de tu negocio.',
+  h2: 'Servicios complementarios',
+  subtitle: 'Herramientas que acompañan y potencian el trabajo digital.',
   cards: [
     {
-      icon: 'Layers' as const,
-      title: 'Branding & Desarrollo',
-      description: 'Una imagen profesional genera confianza desde el primer contacto. Creamos piezas visuales y digitales para que tu negocio se vea sólido y actualizado.',
-      tags: ['Diseño de logo', 'Identidad visual', 'Presentaciones', 'Sitio web', 'Material comercial'],
-      price: 'A presupuestar',
-      cta: 'Potenciar mi marca →',
+      icon: 'Compass' as const,
+      title: 'Estrategia digital',
+      description: 'Definimos el enfoque de comunicación más adecuado para tu negocio, objetivos y momento.',
+      cta: 'Consultar',
     },
     {
-      icon: 'Heart' as const,
-      title: 'Fidelización y Reactivación',
-      description: 'Acercamos novedades a tus clientes actuales para mantener el vínculo activo y seguir vendiendo.',
-      tags: ['Email marketing', 'WhatsApp Business', 'Promociones VIP', 'Cupones exclusivos', 'Lanzamientos', 'Recordatorios'],
-      price: 'A presupuestar',
-      cta: 'Quiero fidelizar clientes →',
+      icon: 'Layout' as const,
+      title: 'Landing pages',
+      description: 'Páginas de destino diseñadas para convertir visitas en consultas o ventas.',
+      cta: 'Consultar',
     },
     {
-      icon: 'ShoppingBag' as const,
-      title: 'Soporte a Ventas',
-      description: 'Sumamos herramientas promocionales que acompañan tus ventas.',
-      tags: ['Catálogos impresos y digitales', 'QR para locales', 'Videos para pantallas', 'Material promocional', 'Eventos', 'Gigantografía LED'],
-      price: 'A presupuestar',
-      cta: 'Consultar opciones →',
+      icon: 'Paintbrush' as const,
+      title: 'Creatividades para campañas',
+      description: 'Piezas visuales pensadas para rendir en plataformas digitales y captar atención.',
+      cta: 'Consultar',
     },
     {
-      icon: 'Zap' as const,
-      title: 'Automatización',
-      description: 'Respondé mejor y más rápido sin sumar carga operativa. Automatizamos consultas frecuentes y ordenamos la comunicación cuando el volumen crece.',
-      tags: ['Respuestas automáticas', 'Panel unificado de mensajes', 'Derivación a WhatsApp', 'Captura de datos'],
-      price: 'Instalación desde $50.000',
-      cta: 'Automatizar mi negocio →',
+      icon: 'MessageSquare' as const,
+      title: 'Asesoría y seguimiento',
+      description: 'Acompañamiento continuo para que cada decisión esté respaldada por datos y estrategia.',
+      cta: 'Consultar',
     },
   ],
 } as const;
@@ -246,11 +252,10 @@ export const ABOUT = {
   label: 'Quién está detrás',
   h2: 'Estrategia digital con mirada humana.',
   badge: '+7 años de experiencia',
-  badgeIcon: 'Target',
   paragraphs: [
-    'Soy Josefina Arredondo y hace más de 7 años acompaño negocios que quieren activar su vidriera digital, ponerse al día con las redes y la tecnología, y llegar a más personas con publicidad.',
-    'Brindo un acompañamiento personalizado, combinando estrategia, creatividad y herramientas digitales para convertir ideas en oportunidades visibles y reales.',
-    'Cada marca tiene un valor único: su gente, su historia y lo que ofrece. El desafío está en comunicarlo de forma clara, auténtica y diferencial.',
+    'Soy Josefina Arredondo y hace más de 7 años trabajo con negocios que buscan ordenar su comunicación y actualizar su presencia digital. Me especializo en campañas como Paid Media - trafficker digital, desarrollando estrategias enfocadas en visibilidad y crecimiento.',
+    'Acompaño cada proyecto de forma personalizada, combinando estrategia, creatividad y herramientas digitales para transformar ideas en oportunidades visibles, trabajando siempre con un enfoque claro, ordenado y en mejora continua.',
+    'Cada marca tiene un valor único: su historia, su gente y lo que ofrece. El desafío está en comunicarlo de forma clara, auténtica y diferencial.',
   ],
   cta: 'Hablemos de tu negocio',
 } as const;
@@ -259,8 +264,8 @@ export const ABOUT = {
 export const CONTACT = {
   label: 'Empecemos',
   h2: 'Agendá una reunión',
-  paragraph: 'Queremos conocer tu negocio, detectar oportunidades y diseñar un plan acorde a tu etapa de crecimiento y objetivos.',
-  cta: 'Programar una cita →',
+  subtitle: 'Analizamos tu negocio y definimos un enfoque claro para la comunicación de forma estratégica.',
+  cta: 'Agendar reunión',
 } as const;
 
 // ── Footer ──────────────────────────────────────────────────

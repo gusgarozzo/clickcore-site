@@ -1,12 +1,15 @@
 import Header from '@/components/Header'
 import HeroSection from '@/components/HeroSection'
-import ProblemSection from '@/components/ProblemSection'
-import WhatWeDoSection from '@/components/WhatWeDoSection'
-import ServicesSection from '@/components/ServicesSection'
+import BrandsSection from '@/components/BrandsSection'
+import PaidMediaSection from '@/components/PaidMediaSection'
+import ResultsSection from '@/components/ResultsSection'
+import HowWeWorkSection from '@/components/HowWeWorkSection'
+import ContentSection from '@/components/ContentSection'
 import ComplementarySection from '@/components/ComplementarySection'
 import AboutSection from '@/components/AboutSection'
 import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
+import FloatingWhatsApp from '@/components/FloatingWhatsApp'
 
 export default function Home() {
   return (
@@ -14,14 +17,17 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-        <ProblemSection />
-        <WhatWeDoSection />
-        <ServicesSection />
+        <BrandsSection />
+        <PaidMediaSection />
+        <ResultsSection />
+        <HowWeWorkSection />
+        <ContentSection />
         <ComplementarySection />
         <AboutSection />
         <ContactSection />
       </main>
       <Footer />
+      <FloatingWhatsApp />
     </>
   )
 }

@@ -10,12 +10,12 @@ const manrope = Manrope({
 })
 
 export const metadata: Metadata = {
-  title: 'Clickcore | Marketing Digital · Redes Sociales · Publicidad Online Argentina',
-  description: 'Impulsamos tu negocio con estrategia digital clara. Gestión de redes sociales, publicidad en Meta Ads y Google Ads, branding y automatización. Consultá gratis.',
-  keywords: ['marketing digital argentina', 'gestión redes sociales', 'meta ads', 'google ads', 'publicidad digital', 'branding', 'clickcore', 'josefina arredondo'],
+  title: 'Clickcore | Publicidad Digital · Meta Ads · Google Ads Argentina',
+  description: 'Especialistas en campañas de Meta Ads y Google Ads. Estrategia, optimización continua y resultados reales para tu negocio. Solicitá tu diagnóstico gratuito.',
+  keywords: ['meta ads argentina', 'google ads argentina', 'publicidad digital', 'paid media', 'campañas digitales', 'trafficker digital', 'clickcore', 'josefina arredondo'],
   authors: [{ name: 'Clickcore', url: 'https://www.clickcore.com.ar' }],
   openGraph: {
-    title: 'Clickcore | Marketing Digital Argentina',
+    title: 'Clickcore | Especialistas en Campañas Digitales',
     description: 'Tenés algo valioso para ofrecer. Hagamos que más personas lo descubran.',
     url: 'https://www.clickcore.com.ar',
     siteName: 'Clickcore',
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Clickcore | Marketing Digital Argentina',
-    description: 'Impulsamos negocios con estrategia digital clara.',
+    title: 'Clickcore | Paid Media · Meta Ads · Google Ads',
+    description: 'Estrategia, campañas activas y optimización continua.',
   },
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://www.clickcore.com.ar' },
@@ -39,7 +39,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'Clickcore',
-  description: 'Agencia de marketing digital. Gestión de redes sociales, publicidad y branding.',
+  description: 'Especialistas en campañas de Meta Ads y Google Ads. Estrategia y optimización continua.',
   url: 'https://www.clickcore.com.ar',
   telephone: '+542494004281',
   email: 'clickcoregrwmarketing@gmail.com',
@@ -60,6 +60,35 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+
+        {/* META PIXEL — reemplazar XXXXXXXXXXXXXXX con el Pixel ID del cliente
+        <Script id="meta-pixel" strategy="afterInteractive">
+          {`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+          n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+          document,'script','https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', 'XXXXXXXXXXXXXXX');
+          fbq('track', 'PageView');`}
+        </Script> */}
+
+        {/* GOOGLE ADS TAG — reemplazar AW-XXXXXXXXX con el ID de conversión
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX" strategy="afterInteractive" />
+        <Script id="google-ads" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-XXXXXXXXX');`}
+        </Script> */}
+
+        {/* GOOGLE ANALYTICS — reemplazar G-XXXXXXXXXX con el Measurement ID
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-XXXXXXXXXX');`}
+        </Script> */}
       </head>
       <body className="font-sans antialiased">
         {children}
