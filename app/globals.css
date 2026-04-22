@@ -2,12 +2,12 @@
 
 /* ── Tailwind v4 theme tokens ─────────────────────────────── */
 @theme {
-  --color-brand-green: #18CB96;
-  --color-brand-dark: #373643;
-  --color-brand-deep: #0F6B57;
-  --color-brand-medium: #159F78;
-  --color-brand-mint: #DDF8EF;
-  --color-brand-white: #FFFFFF;
+  --color-brand-green:    #18CB96;
+  --color-brand-dark:     #373643;
+  --color-brand-deep:     #0F6B57;
+  --color-brand-medium:   #159F78;
+  --color-brand-mint:     #DDF8EF;
+  --color-brand-white:    #FFFFFF;
   --color-brand-bg-light: #F6F8F7;
   --color-brand-text-gray: #6B7280;
 
@@ -15,7 +15,7 @@
 
   --radius-card: 16px;
   --radius-pill: 9999px;
-  --radius-btn: 12px;
+  --radius-btn:  12px;
 }
 
 /* ── Base ──────────────────────────────────────────────────── */
@@ -47,4 +47,22 @@ body {
 }
 .nav-link:hover::after {
   width: 100%;
+}
+
+/* ── Placeholder images (used when real images not present) ── */
+.img-placeholder {
+  background: linear-gradient(135deg, #DDF8EF 0%, #F6F8F7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #18CB96;
+  font-family: var(--font-family-sans);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ── Prevent layout shift on section IDs ─────────────────── */
+section[id] {
+  scroll-margin-top: 80px;
 }

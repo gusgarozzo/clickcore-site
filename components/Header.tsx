@@ -1,55 +1,45 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { NAV_LINKS, WHATSAPP_CONSULTA } from '@/lib/constants'
-
-function ClickcoreLogo({ color = '#373643' }: { color?: string }) {
-  return (
-    <a href="#hero" className="flex items-center gap-2">
-      {/* SVG logo icon — double geometric cursors in green */}
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 4 L14 4 L14 7 L7 7 L7 14 L4 14 Z" fill="#18CB96" />
-        <path d="M10 10 L20 10 L20 13 L13 13 L13 20 L10 20 Z" fill="#18CB96" opacity="0.7" />
-      </svg>
-      <span className="font-bold text-lg" style={{ color }}>
-        clickcore
-      </span>
-    </a>
-  )
-}
+import { Menu, X } from 'lucide-react'
+import { NAV_LINKS, WHATSAPP_DIAGNOSTICO } from '@/lib/constants'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+    const onScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  const handleNavClick = () => setMobileOpen(false)
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      style={{
-        background: scrolled ? 'rgba(255,255,255,0.95)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        boxShadow: scrolled ? '0 1px 20px rgba(55,54,67,0.08)' : 'none',
-      }}
+      className={`sticky top-0 z-50 transition-all duration-300 ease-in-out ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}
     >
-      <div className="mx-auto max-w-7xl px-6 flex items-center justify-between h-[72px]">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
-        <ClickcoreLogo />
+        <a href="#hero" className="flex items-center gap-3 no-underline" aria-label="Clickcore — Inicio">
+          <svg width="40" height="40" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 4 L18 4 L18 8 L8 8 L8 18 L4 18 Z" fill="#18CB96" />
+            <path d="M14 14 L28 14 L28 18 L18 18 L18 28 L14 28 Z" fill="#18CB96" opacity="0.7" />
+          </svg>
+          <span className="font-sans font-bold text-2xl text-brand-dark tracking-tight">
+            clickcore
+          </span>
+        </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-8" aria-label="Navegación principal">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="nav-link text-brand-dark font-semibold text-sm hover:text-brand-green transition-colors duration-200"
+              className="nav-link font-sans font-semibold text-sm text-brand-dark hover:text-brand-green transition-colors duration-200 no-underline"
             >
               {link.label}
             </a>
@@ -57,56 +47,61 @@ export default function Header() {
         </nav>
 
         {/* Desktop CTA */}
-        <a
-          href={WHATSAPP_CONSULTA}
+        <motion.a
+          href={WHATSAPP_DIAGNOSTICO}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center justify-center bg-brand-green text-white font-bold text-[15px] rounded-full px-7 py-3.5 hover:bg-brand-medium hover:scale-[1.03] hover:shadow-[0_8px_24px_rgba(24,203,150,0.35)] transition-all duration-200"
+          whileHover={{ scale: 1.03, boxShadow: '0 8px 24px rgba(24,203,150,0.35)' }}
+          whileTap={{ scale: 0.97 }}
+          transition={{ duration: 0.2 }}
+          className="hidden md:inline-flex items-center bg-brand-green hover:bg-brand-medium text-white font-sans font-bold text-[15px] px-7 py-3.5 rounded-full transition-colors duration-200 no-underline"
+          aria-label="Solicitar diagnóstico gratuito"
         >
-          Agendá tu consulta gratis
-        </a>
+          Solicitar diagnóstico
+        </motion.a>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-brand-dark"
-          onClick={() => setMobileOpen(!mobileOpen)}
+          onClick={() => setMobileOpen((v) => !v)}
+          className="md:hidden p-2 rounded-lg text-brand-dark"
           aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="md:hidden overflow-hidden bg-white"
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="overflow-hidden bg-white/98 backdrop-blur-md border-t border-brand-dark/5"
           >
-            <nav className="flex flex-col px-6 pb-6">
+            <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-0">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="text-brand-dark font-semibold text-lg py-4 border-b border-brand-bg-light hover:text-brand-green transition-colors"
+                  onClick={handleNavClick}
+                  className="font-sans font-normal text-lg text-brand-dark no-underline py-4 border-b border-brand-dark/5 block"
                 >
                   {link.label}
                 </a>
               ))}
               <a
-                href={WHATSAPP_CONSULTA}
+                href={WHATSAPP_DIAGNOSTICO}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setMobileOpen(false)}
-                className="mt-4 text-center bg-brand-green text-white font-bold text-[15px] rounded-full px-7 py-3.5 hover:bg-brand-medium transition-all duration-200"
+                onClick={handleNavClick}
+                className="block mt-4 bg-brand-green text-white font-sans font-bold text-[15px] p-4 rounded-full text-center mb-2 no-underline"
               >
-                Agendá tu consulta gratis
+                Solicitar diagnóstico
               </a>
-            </nav>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
