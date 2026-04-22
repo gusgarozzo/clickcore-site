@@ -15,7 +15,7 @@ export default function WhatWeDoSection() {
       <div className="max-w-4xl mx-auto px-6 text-center">
         <motion.p
           initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease: [0.25,0.1,0.25,1] }}
+          transition={{ duration: 0.55, ease: [0.25,0.1,0.25,1] as [number, number, number, number] }}
           viewport={{ once: true, margin: '-60px' }}
           className="text-[#18CB96] text-[12px] font-semibold uppercase 
             tracking-[0.1em] mb-4"
@@ -25,7 +25,7 @@ export default function WhatWeDoSection() {
 
         <motion.h2
           initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.1, ease: [0.25,0.1,0.25,1] }}
+          transition={{ duration: 0.55, delay: 0.1, ease: [0.25,0.1,0.25,1] as [number, number, number, number] }}
           viewport={{ once: true, margin: '-60px' }}
           className="font-bold text-[44px] md:text-[44px] text-[30px] 
             leading-[1.15] text-[#373643] mb-6"
@@ -36,7 +36,7 @@ export default function WhatWeDoSection() {
 
         <motion.div
           initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.15, ease: [0.25,0.1,0.25,1] }}
+          transition={{ duration: 0.55, delay: 0.15, ease: [0.25,0.1,0.25,1] as [number, number, number, number] }}
           viewport={{ once: true, margin: '-60px' }}
           className="space-y-3 mb-10"
         >
@@ -52,7 +52,7 @@ export default function WhatWeDoSection() {
 
         <motion.div
           initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.2, ease: [0.25,0.1,0.25,1] }}
+          transition={{ duration: 0.55, delay: 0.2, ease: [0.25,0.1,0.25,1] as [number, number, number, number] }}
           viewport={{ once: true, margin: '-60px' }}
           className="flex flex-wrap justify-center gap-3"
         >

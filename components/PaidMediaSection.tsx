@@ -147,67 +147,25 @@ export default function PaidMediaSection() {
         </div>
       ))}
 
-      {/* CTA block — Editorial Minimalism (Integrated version) */}
-      <div className="border-t border-[#F6F8F7] py-40 px-6 text-center bg-white">
-        <div className="max-w-4xl mx-auto">
-          <motion.h3
-            {...(shouldReduce
-              ? {}
-              : {
-                  initial: { opacity: 0, y: 20 },
-                  whileInView: { opacity: 1, y: 0 },
-                  transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
-                  viewport: { once: true },
-                })}
-            className="font-sans font-bold text-[#373643] m-0 text-[32px] md:text-[52px] leading-tight tracking-[-0.02em]"
+      {/* CTA block — Dark Card */}
+      <div className="max-w-7xl mx-auto px-6 pb-20">
+        <div className="bg-[#373643] rounded-3xl px-12 py-12 flex flex-col items-center 
+          text-center gap-6 mt-20">
+          <motion.a
+            href={WHATSAPP_CAMPANAS}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="bg-[#18CB96] text-white font-bold text-[15px] px-7 py-[14px] 
+              rounded-full transition-all duration-200 hover:bg-[#159F78] 
+              hover:shadow-[0_8px_24px_rgba(24,203,150,0.35)]"
           >
-            ¿Listo para hacer crecer tu negocio con publicidad?
-          </motion.h3>
-
-          <motion.p
-            {...(shouldReduce
-              ? {}
-              : {
-                  initial: { opacity: 0, y: 20 },
-                  whileInView: { opacity: 1, y: 0 },
-                  transition: {
-                    duration: 0.6,
-                    delay: 0.1,
-                    ease: [0.25, 0.1, 0.25, 1],
-                  },
-                  viewport: { once: true },
-                })}
-            className="font-sans font-normal text-[#6B7280] text-[18px] md:text-[21px] m-0 mt-6 mb-12"
-          >
-            Resultados medibles y optimización constante.
-          </motion.p>
-
-          <motion.div
-            {...(shouldReduce
-              ? {}
-              : {
-                  initial: { opacity: 0, scale: 0.98 },
-                  whileInView: { opacity: 1, scale: 1 },
-                  transition: { duration: 0.4, delay: 0.2 },
-                  viewport: { once: true },
-                })}
-          >
-            <motion.a
-              href={WHATSAPP_CAMPANAS}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{
-                scale: 1.02,
-                boxShadow: "0 0 0 4px rgba(24,203,150,0.15)",
-              }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.2 }}
-              className="inline-flex items-center gap-3 bg-[#18CB96] text-white font-sans font-bold text-base px-12 py-5 rounded-full no-underline transition-all duration-250"
-            >
-              {PAID_MEDIA.cta}
-              <ArrowRight size={22} aria-hidden="true" />
-            </motion.a>
-          </motion.div>
+            Quiero trabajar mis campañas
+          </motion.a>
+          <p className="text-[rgba(255,255,255,0.6)] font-normal text-[14px]">
+            Trabajo personalizado y optimización continua.
+          </p>
         </div>
       </div>
     </section>
